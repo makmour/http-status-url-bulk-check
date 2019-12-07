@@ -1,0 +1,6 @@
+http://site1.tld
+http://site2.tld
+http://site3.tld
+http://site4.tld
+http://site5.tld
+http://site6.tld
