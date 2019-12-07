@@ -11,7 +11,7 @@ This is a Python script for checking in bulk HTTP status codes in bulk using an 
 |[urls.txt](urls.txt)|this is the import file containg the URL list, one domain per line|
 |[README.md](README.md)|this file|
 |[CHANGELOG](CHANGELOG.md)|changelog file|
-|[LICENCE](LICENCE)|info about the licence used|
+|[LICENSE](LICENSE)|info about the licence used|
 |[CONTRIBUTING](CONTRIBUTING.md)|contributions are more than welcome, read more about them|
 
 ## How to use :
