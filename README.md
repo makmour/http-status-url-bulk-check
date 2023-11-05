@@ -1,7 +1,7 @@
 # URL HTTP Status Bulk Check
 ## Short Description
 
-This is a Python script for checking in bulk HTTP status codes in bulk using an import file which contain a list with the URLs.
+This is a Python script for checking in bulk HTTP status codes using an import file which contains a list of the URLs.
 
 ## Files
 
