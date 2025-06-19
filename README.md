@@ -1,33 +1,86 @@
 # URL HTTP Status Bulk Check
+
 ## Short Description
 
-This is a Python script for checking in bulk HTTP status codes using an import file which contains a list of the URLs.
+A Python script for bulk-checking HTTP status codes from a list of URLs. The tool includes concurrency, retries, robust error handling, command-line interface (CLI), and structured CSV output.
+
+---
+
+## Features
+
+- **Multithreaded Requests**: Uses `ThreadPoolExecutor` for fast, concurrent URL checking.
+- **Automatic Retries**: Handles transient errors (500–504) with a configurable retry strategy.
+- **Robust Error Handling**: Detects and clearly reports timeouts, connection errors, invalid URLs, and HTTP errors.
+- **Custom Headers**: Uses a friendly `User-Agent` to reduce chances of getting blocked.
+- **CSV Output**: Saves results to `results.csv` with structured information (URL, status code, message).
+- **Command-Line Interface**:
+  - Accepts a `--file` (or `-f`) argument to specify an input file.
+  - Defaults to `urls.txt` if no file is provided.
+
+---
 
 ## Files
 
-| Filename | Usage |
-|--|--|
-|[check.py](check.py)|this is the executable py file|
-|[urls.txt](urls.txt)|this is the import file containg the URL list, one domain per line|
-|[README.md](README.md)|this file|
-|[CHANGELOG](CHANGELOG.md)|changelog file|
-|[LICENSE](LICENSE)|info about the licence used|
-|[CONTRIBUTING](CONTRIBUTING.md)|contributions are more than welcome, read more about them|
+| Filename              | Usage                                                                      |
+|-----------------------|----------------------------------------------------------------------------|
+| [check.py](check.py)  | The main executable Python script                                          |
+| [urls.txt](urls.txt)  | Input file containing the list of URLs to check (one per line)             |
+| [results.csv](results.csv) | Output file containing structured status check results                |
+| [README.md](README.md)| This file                                                                  |
+| [CHANGELOG](CHANGELOG.md) | Full changelog of changes and improvements                         |
+| [LICENSE](LICENSE)    | Project license (MIT)                                                      |
+| [CONTRIBUTING](CONTRIBUTING.md) | Guidelines for contributing to the project                     |
 
-## How to use :
+---
 
-1. Create a txt file under the name of urls.txt and add a list of the URLs you want to check their HTTP status code or edit the one found in this repo.
-2. Save.
-3. Run: python3 check.py
+## How to Use
+
+1. Create or edit `urls.txt` and include one URL per line.
+2. Run the script using:
+
+```bash
+python3 check.py
+```
+
+3. (Optional) To use a custom input file:
+
+```bash
+python3 check.py -f myfile.txt
+```
+
+4. The results will be printed to the terminal and saved to `results.csv`.
+
+---
+
+## Example Output
+
+**Console:**
+```
+https://example.com @ 200 - Success
+https://nonexistent.example @ 404 - HTTP Error: 404 Client Error: Not Found for url
+```
+
+**results.csv:**
+```
+URL,Status Code,Message
+https://example.com,200,Success
+https://nonexistent.example,404,HTTP Error: 404 Client Error: Not Found for url
+```
+
+---
 
 ## Changelog
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+Please see [CHANGELOG](CHANGELOG.md) for detailed update history.
+
+---
 
 ## Security
 
-If you discover any security related issues, please [keybase](https://keybase.io/didgit) instead of using the issue tracker.
+If you discover any security-related issues, please get in touch with me via [Twitter](https://x.com/infectedplus1) instead of using the public issue tracker.
+
+---
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE) for more information.
+The MIT License (MIT). Please see the [License File](LICENSE) for more information.
